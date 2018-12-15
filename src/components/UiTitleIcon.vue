@@ -1,7 +1,7 @@
 <template>
   <h3 v-if="title !== '' && icon !== ''" class="ui-title-icon">
     <span v-bind:uk-icon="icon"></span>
-    {{ title }}
+    <span style="position:relative;top:3px;">{{ title }}</span>
   </h3>
 </template>
 

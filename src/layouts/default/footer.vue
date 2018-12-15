@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 60px;
     background-color: #3c495e;
     padding: 0;
   }
