@@ -1,0 +1,21 @@
+<template>
+  <div class="ui-footer">
+    <p class="ui-text">&copy; All reserved by Nino</p>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  .ui-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: #3c495e;
+    padding: 0;
+  }
+
+  .ui-text {
+    color: #ffffff;
+    margin: 0;
+  }
+</style>

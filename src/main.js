@@ -4,12 +4,33 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import DefaultLayout from '@/layouts/default'
+import AuthLayout from '@/layouts/auth'
+
+Vue.component('default-layout', DefaultLayout)
+Vue.component('auth-layout', AuthLayout)
+
+const requireComponent = require.context(
+  './components',
+  false,
+  /[A-Z]\w+\.(vue|js)$/
+)
+
+requireComponent.keys().forEach(fileName => {
+  const componentConfig = requireComponent(fileName)
+  fileName = fileName.split('.')[1]
+  const componentName = `${fileName.replace('/', '')}Component`
+
+  Vue.component(
+    componentName,
+    componentConfig.default || componentConfig
+  )
+})
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')
