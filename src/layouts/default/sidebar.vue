@@ -1,51 +1,37 @@
 <template>
-  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@s">
-    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-      <li class="uk-active">
-        <a href="#">DASHBOARD</a>
-      </li>
-      <li class="uk-parent">
-        <a href="#">SCHEDULES</a>
-        <ul class="uk-nav-sub">
-          <li>
-            <a href="#">Current</a>
-          </li>
-          <li>
-            <a href="#">Pass</a>
-          </li>
-          <li>
-            <a href="#">Next</a>
-          </li>
-        </ul>
-      </li>
-      <li class="uk-parent">
-        <a href="#">Parent</a>
-        <ul class="uk-nav-sub">
-          <li>
-            <a href="#">Sub item</a>
-          </li>
-          <li>
-            <a href="#">Sub item</a>
-          </li>
-        </ul>
-      </li>
-      <li class="uk-nav-header">Header</li>
-      <li>
-        <a href="#">
-          <span class="uk-margin-small-right" uk-icon="icon: table"></span> Item
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item
-        </a>
-      </li>
-      <li class="uk-nav-divider"></li>
-      <li>
-        <a href="#">
-          <span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item
-        </a>
-      </li>
-    </ul>
+  <div>
+    <UiNavComponent
+      v-for="(menu, index) in menus"
+      v-bind:key="index"
+      v-bind:title="menu.title"
+      v-bind:menus="menu.menus" />
   </div>
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      menus: [
+        {
+          title: '',
+          menus: [
+            {
+              icon: '',
+              title: 'Boards',
+              href: '/boards',
+              active: true
+            },
+            {
+              icon: '',
+              title: 'Home',
+              href: '/',
+              active: false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</script>

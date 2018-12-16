@@ -12,6 +12,14 @@ export default new Router({
         layout: 'default'
       },
       component: () => import('@/containers/home')
+    },
+    {
+      path: '/:boardId/board',
+      name: 'BoardPage',
+      meta: {
+        layout: 'blank'
+      },
+      component: () => import('@/containers/board')
     }
   ]
 })

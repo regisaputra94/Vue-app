@@ -6,9 +6,11 @@ import router from './router'
 
 import DefaultLayout from '@/layouts/default'
 import AuthLayout from '@/layouts/auth'
+import BlankLayout from '@/layouts/blank'
 
 Vue.component('default-layout', DefaultLayout)
 Vue.component('auth-layout', AuthLayout)
+Vue.component('blank-layout', BlankLayout)
 
 const requireComponent = require.context(
   './components',

@@ -1,14 +1,17 @@
 <template>
   <div v-if="board" class="ui-board">
     <div v-bind:class="'uk-card uk-card-'+ type +' uk-card-hover uk-card-body'">
-      <h3 class="uk-card-title">{{ board.title }}</h3>
+      <router-link v-bind:to="'/'+ board.id + '/board'" class="uk-card-title">
+        {{ board.title }}
+      </router-link>
+
       <div class="footer">
         <p style="margin-top: 15px;">
           <span uk-icon="user"></span>
           <span style="position:relative;top:3px;">Tsuki Team</span>
         </p>
 
-        <span v-if="isFavorite" uk-icon="star" style="color:#ffaf05;" v-on:click="toggleFavorite(board)"></span>
+        <span v-if="board.isFavorite" uk-icon="star" style="color:#ffaf05;" v-on:click="toggleFavorite(board)"></span>
         <span v-else uk-icon="star" v-on:click="toggleFavorite(board)"></span>
       </div>
     </div>
@@ -28,12 +31,6 @@ export default {
     board: {
       type: Object
     },
-    isFavorite: {
-      type: Boolean,
-      default: function () {
-        return false
-      }
-    },
     toggleFavorite: {
       type: Function
     }
@@ -52,7 +49,6 @@ export default {
       height: 120px;
       display: flex;
       flex-direction: column;
-      cursor: pointer;
       position: relative;
       overflow: hidden;
 
@@ -69,10 +65,15 @@ export default {
         font-weight: bold;
       }
 
-      > h3 {
+      > .uk-card-title {
         color: #ffffff;
         margin: 0;
         font-weight: bold;
+        text-decoration: none !important;
+      }
+
+      span {
+        cursor: pointer;
       }
     }
   }
