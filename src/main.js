@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import SuiVue from 'semantic-ui-vue'
+import 'semantic-ui-css/semantic.min.css'
 
 import DefaultLayout from '@/layouts/default'
 import AuthLayout from '@/layouts/auth'
@@ -32,6 +34,7 @@ requireComponent.keys().forEach(fileName => {
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+Vue.use(SuiVue)
 new Vue({
   router,
   render: h => h(App)
